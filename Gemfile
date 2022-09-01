@@ -1,7 +1,7 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+ruby '3.1.2'
 
 group :production, :staging, :development, :test do
   # to optimize and cache expensive computations
@@ -80,7 +80,7 @@ group :production, :staging, :development, :test do
   gem 'turbo-rails', '~> 1.1'
 
   # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-  gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+  gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
   # Ruby C bindings to the excellent Yajl JSON stream-based parser library.
   # Read more: http://github.com/brianmario/yajl-ruby
@@ -93,7 +93,7 @@ group :development, :test do
   gem 'bullet', '~> 7.0'
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
 
   # factory_bot_rails provides integration between factory_bot
   # Read more: https://github.com/thoughtbot/factory_bot_rails
@@ -181,4 +181,3 @@ group :development do
   # Read more: http://www.rubydoc.info/gems/strong_migrations/
   gem 'strong_migrations', github: 'ankane/strong_migrations'
 end
-
