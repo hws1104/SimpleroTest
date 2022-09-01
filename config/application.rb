@@ -35,5 +35,11 @@ module Chatter
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Don't generate jbuilder files.
+    config.generators.jbuilder = false
+
+    # use sidekiq for ActiveJob
+    config.active_job.queue_adapter = :sidekiq
   end
 end
