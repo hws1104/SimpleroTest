@@ -6,3 +6,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+# load other seeds
+Dir['db/seeds/**/*.rb'].each { |f| require Rails.root.join(f) }
+AppSeeds::Users.seed
