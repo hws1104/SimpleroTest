@@ -1,12 +1,16 @@
 <div id="<%= dom_id group %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= group.title %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this group", group, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this group', edit_group_path(group), data: { turbo_frame: 'modal' }, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <div class="grid grid-cols-3 gap-4">
+    <div class="col-span-2 ...">
+      <p class="my-5">
+        <strong class="block font-medium mb-1"><%= group.title %></strong>
+      </p>
+      <span><%= group.users.count %> members</span>
+      <span class="mx-3">30 posts</span>
+      <span class="mx-3">Last Activity 3 days ago.</span>
+    </div>
+    <div class="... my-5">
+      <%= join_or_edit_group_link(group.users, current_user, action_name, group) %>
+    </div>
+  </div>
+  <hr class="mt-6">
 </div>

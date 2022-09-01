@@ -32,9 +32,13 @@ export default class extends Controller {
   // hide modal when clicking outside of modal
   // action: "click@window->turbo-modal#closeBackground"
   closeBackground(e) {
-    if (e && this.modalTarget.contains(e.target)) {
-      return
+    if (e && e.target.dataset.turboModalTarget === "modal" && e.target.classList.contains("inset-0")) {
+      this.hideModal()
     }
-    this.hideModal()
+    else if (e && this.modalTarget.contains(e.target)) {
+        // do nothing
+    } else {
+      this.hideModal()
+    }
   }
 }

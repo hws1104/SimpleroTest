@@ -1,12 +1,19 @@
 # frozen_string_literal: true
 
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show edit update destroy]
+  before_action :set_group, only: %i[show edit update destroy join]
   before_action :ensure_frame_response, only: %i[new edit]
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.all
+    @groups = case params[:search]
+              when 'mine'
+                current_user.my_groups
+              when 'member'
+                current_user.groups
+              else
+                Group.all
+              end
   end
 
   # GET /groups/1 or /groups/1.json
@@ -22,7 +29,8 @@ class GroupsController < ApplicationController
 
   # POST /groups or /groups.json
   def create
-    @group = Group.new(group_params)
+    @group = current_user.my_groups.new(group_params)
+    @group.users << current_user
 
     respond_to do |format|
       if @group.save
@@ -60,6 +68,14 @@ class GroupsController < ApplicationController
     end
   end
 
+  def join
+    @group.users << current_user
+    respond_to do |format|
+      format.html { redirect_to groups_url, notice: "#{current_user.email} joins the #{@group.title}" }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -75,6 +91,6 @@ class GroupsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def group_params
-    params.require(:group).permit(:title)
+    params.require(:group).permit(:title, :user_id)
   end
 end

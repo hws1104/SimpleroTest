@@ -1,7 +1,20 @@
 <div class="mx-auto w-5/6">
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Groups</h1>
+    <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+      <li class="mr-2">
+        <a href="<%= groups_path(search: 'all') %>" aria-current="page" class="inline-block p-4 rounded-t-lg <%= 'active text-blue-600 bg-gray-100' unless params[:search] == 'mine' || params[:search] == 'member' %> dark:bg-gray-800 dark:text-blue-500">All Groups</a>
+      </li>
+      <li class="mr-2">
+        <a href="<%= groups_path(search: 'mine') %>" class="inline-block p-4 rounded-t-lg hover:text-gray-600  dark:hover:bg-gray-800 dark:hover:text-gray-500 <%= 'active text-blue-600 bg-gray-100' if params[:search] == 'mine' %>">Created by me</a>
+      </li>
+      <li class="mr-2">
+        <a href="<%= groups_path(search: 'member') %>" class="inline-block p-4 rounded-t-lg hover:text-gray-600  dark:hover:bg-gray-800 dark:hover:text-gray-500 <%= 'active text-blue-600 bg-gray-100' if params[:search] == 'member' %>">Where I am member</a>
+      </li>
+    </ul>
     <%= button_to 'New group', new_group_path, method: :get, data: { turbo_frame: 'modal' }, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+  <div class="flex justify-between items-center mt-5">
+    <h1 class="font-bold text-4xl">Groups</h1>
   </div>
 
   <div id="groups" class="min-w-full">

@@ -22,6 +22,8 @@
 #                              user_unlock GET    /unblock(.:format)                                                                                users/unlocks#show
 #                                          POST   /unblock(.:format)                                                                                users/unlocks#create
 #                                     root GET    /                                                                                                 groups#index
+#                               join_group POST   /groups/:id/join(.:format)                                                                        groups#join
+#                              leave_group DELETE /groups/:id/leave(.:format)                                                                       groups#leave
 #                                   groups GET    /groups(.:format)                                                                                 groups#index
 #                                          POST   /groups(.:format)                                                                                 groups#create
 #                                new_group GET    /groups/new(.:format)                                                                             groups#new
@@ -80,5 +82,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: 'groups#index'
-  resources :groups
+  resources :groups do
+    member do
+      post :join
+      delete :leave
+    end
+  end
 end
