@@ -1,11 +1,9 @@
 <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-white mb-3  bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
   <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
     <div class="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
-      <a class="text-sm inline-block mr-4 py-2 whitespace-nowrap uppercase" href="#">
-        Groups
-      </a>
+      <%= link_to 'Groups', root_url, class: "text-sm inline-block mr-4 py-2 whitespace-nowrap uppercase" %>
       <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" data-toggle-id="example-collapse-navbar" id="navbar-toggle">
-        <i class="fas fa-bars"></i>
+        <i class="fa fa-bars h-6 w-6 inline"></i>
       </button>
     </div>
     <div class="lg:flex flex-grow items-center hidden" id="example-collapse-navbar">
@@ -13,24 +11,22 @@
         <li class="nav-item">
           <%- if user_signed_in? %>
             <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'text-red bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' do %>
-             <i class="fa-solid fa-right-from-bracket h-6 w-6 inline"></i> Logout
+             <i class="fa-solid fa-sign-out-alt h-6 w-6 inline"></i> Logout
             <% end %>
           <%else%>
             <%= link_to new_user_session_path, class: 'text-red bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' do %>
               LogIn
             <% end %>
           <% end %>
-           <a class="px-3 py-2 flex items-center text-xs uppercase leading-snug hover:opacity-75" href="#pablo">
+          <!--  <a class="px-3 py-2 flex items-center text-xs uppercase leading-snug hover:opacity-75" href="#pablo">
             <i class="fab fa-facebook-square text-lg leading-lg opacity-75"></i><span class="ml-2">Share</span>
-          </a>
+          </a> -->
         </li>
-         <li class="nav-item">
-          <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get started</button>
-
+        <!-- <li class="nav-item">
           <a class="px-3 py-2 flex items-center text-xs uppercase leading-snug hover:opacity-75" href="#pablo">
-            <i class="fa-brands fa-twitter text-lg leading-lg opacity-75"></i><span class="ml-2">Tweet</span>
+            <i class="fa-brands fa-twitter text-lg leading-lg opacity-75 h-6 w-6 inline"></i><span class="ml-2">Tweet</span>
           </a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
