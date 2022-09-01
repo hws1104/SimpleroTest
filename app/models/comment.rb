@@ -25,4 +25,6 @@ class Comment < ApplicationRecord
   has_many :sub_comments, as: :commentable, class_name: 'Comment'
   belongs_to :commentable, polymorphic: true
   belongs_to :user
+
+  validates :content, presence: true
 end

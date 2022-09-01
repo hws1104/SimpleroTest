@@ -24,6 +24,13 @@
 #                                     root GET    /                                                                                                 groups#index
 #                               join_group POST   /groups/:id/join(.:format)                                                                        groups#join
 #                              leave_group DELETE /groups/:id/leave(.:format)                                                                       groups#leave
+#                      group_post_comments GET    /groups/:group_id/posts/:post_id/comments(.:format)                                               comments#index
+#                                          POST   /groups/:group_id/posts/:post_id/comments(.:format)                                               comments#create
+#                   new_group_post_comment GET    /groups/:group_id/posts/:post_id/comments/new(.:format)                                           comments#new
+#                  edit_group_post_comment GET    /groups/:group_id/posts/:post_id/comments/:id/edit(.:format)                                      comments#edit
+#                       group_post_comment PATCH  /groups/:group_id/posts/:post_id/comments/:id(.:format)                                           comments#update
+#                                          PUT    /groups/:group_id/posts/:post_id/comments/:id(.:format)                                           comments#update
+#                                          DELETE /groups/:group_id/posts/:post_id/comments/:id(.:format)                                           comments#destroy
 #                              group_posts GET    /groups/:group_id/posts(.:format)                                                                 posts#index
 #                                          POST   /groups/:group_id/posts(.:format)                                                                 posts#create
 #                           new_group_post GET    /groups/:group_id/posts/new(.:format)                                                             posts#new
@@ -95,6 +102,8 @@ Rails.application.routes.draw do
       post :join
       delete :leave
     end
-    resources :posts
+    resources :posts do
+      resources :comments, except: [:show]
+    end
   end
 end

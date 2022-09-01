@@ -40,6 +40,7 @@ class User < ApplicationRecord
   has_many :groups, through: :users_groups
   has_many :my_groups, class_name: 'Group', dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :first_name, presence: true
 

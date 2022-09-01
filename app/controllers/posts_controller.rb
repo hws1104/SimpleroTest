@@ -5,19 +5,19 @@ class PostsController < ApplicationController
   before_action :check_if_user_have_access_of_post
   before_action :set_post, only: %i[show edit update destroy]
 
-  # GET /posts or /posts.json
+  # GET /:group_id/posts or /:group_id/posts.json
   def index
     @posts = @group.posts
     @post = @group.posts.new
   end
 
-  # GET /posts/1 or /posts/1.json
+  # GET /:group_id/posts/1 or /:group_id/posts/1.json
   def show; end
 
-  # GET /posts/1/edit
+  # GET /:group_id/posts/1/edit
   def edit; end
 
-  # POST /posts or /posts.json
+  # POST /:group_id/posts or /:group_id/posts.json
   def create
     @post = @group.posts.new(post_params)
     @post.user = current_user
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1 or /posts/1.json
+  # PATCH/PUT /:group_id/posts/1 or /:group_id/posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1 or /posts/1.json
+  # DELETE /:group_id/posts/1 or /:group_id/posts/1.json
   def destroy
     @post.destroy
 
