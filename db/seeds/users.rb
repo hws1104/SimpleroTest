@@ -17,6 +17,11 @@ module AppSeeds
             first_name: 'Second Test',
             last_name: 'User',
             email: 'user2@example.com'
+          },
+          {
+            first_name: 'Third Test',
+            last_name: 'User',
+            email: 'user3@example.com'
           }
         ]
 

@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :set_group
   before_action :check_if_user_have_access_of_post
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :enure_user_have_access_to_edit_and_delete_post, only: %i[edit destroy]
 
   # GET /:group_id/posts or /:group_id/posts.json
   def index
@@ -65,6 +66,10 @@ class PostsController < ApplicationController
 
   def check_if_user_have_access_of_post
     redirect_to groups_url, notice: "You don't have access of the following Group" unless @group.users.include?(current_user)
+  end
+
+  def enure_user_have_access_to_edit_and_delete_post
+    redirect_to group_posts_url(@group), notice: "Only Post owner and Group owner can edit/delete post" and return unless current_user == @post.user || current_user == @group.user
   end
 
   def set_post

@@ -32,7 +32,7 @@ group :production, :staging, :development, :test do
 
   # Use Active Storage variant
   # Read more: https://github.com/janko/image_processing
-  gem 'image_processing', '~> 1.12'
+  # gem 'image_processing', '~> 1.12'
 
   # Build JSON APIs with ease [https://github.com/rails/jbuilder]
   gem 'jbuilder', '~> 2.11', '>= 2.11.5'
@@ -63,7 +63,7 @@ group :production, :staging, :development, :test do
 
   # ruby-vips is a binding for the libvips image processing library
   # Read more: https://github.com/libvips/ruby-vips
-  gem 'ruby-vips', '~> 2.1', '>= 2.1.4'
+  # gem 'ruby-vips', '~> 2.1', '>= 2.1.4'
 
   # Use Sass to process CSS
   # gem "sassc-rails"

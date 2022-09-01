@@ -3,6 +3,7 @@
 class CommentsController < ApplicationController
   before_action :set_group_and_post
   before_action :set_comment, only: %i[show edit update destroy]
+  before_action :enure_user_have_access_to_edit_and_delete_comment, only: %i[edit destroy]
 
   # GET /:group_id/posts/:post_id/comments or /:group_id/posts/:post_id/comments.json
   def index
@@ -74,14 +75,14 @@ class CommentsController < ApplicationController
     @post = @group.posts.find(params[:post_id])
   end
 
-  def check_if_user_have_access_of_post
-    redirect_to groups_url, notice: "You don't have access of the following Group" unless @group.users.include?(current_user)
-  end
-
   def set_post; end
 
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+
+  def enure_user_have_access_to_edit_and_delete_comment
+    redirect_to group_post_comments_url(@group, @post), notice: "Only Comment owner and Group owner can edit/delete comment" and return unless current_user == @comment.user || current_user == @group.user
   end
 
   # Only allow a list of trusted parameters through.

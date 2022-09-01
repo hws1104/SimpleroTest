@@ -3,6 +3,7 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy join leave]
   before_action :ensure_frame_response, only: %i[new edit]
+  before_action :enure_user_have_access_to_delete_member, only: %i[leave]
 
   # GET /groups or /groups.json
   def index
@@ -77,9 +78,7 @@ class GroupsController < ApplicationController
   end
 
   def leave
-    member = User.find(params[:member_id])
-    redirect_to group_posts_url(@group), notice: "You can't remove owner of the group" and return if member == @group.user
-    @group.users.delete(member)
+    @group.users.delete(@member)
     respond_to do |format|
       format.html { redirect_to group_posts_url(@group), notice: "#{current_user.name} removed from the #{@group.title}" }
       format.json { head :no_content }
@@ -97,6 +96,12 @@ class GroupsController < ApplicationController
     return unless Rails.env.development?
 
     redirect_to root_path unless turbo_frame_request?
+  end
+
+  def enure_user_have_access_to_delete_member
+    @member = User.find(params[:member_id])
+    redirect_to group_posts_url(@group), notice: "You can't remove owner of the group" and return if @member == @group.user
+    redirect_to group_posts_url(@group), notice: "Only owner can remove group's members." and return unless current_user == @group.user
   end
 
   # Only allow a list of trusted parameters through.

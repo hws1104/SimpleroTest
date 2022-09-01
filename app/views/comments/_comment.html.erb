@@ -7,23 +7,20 @@
     <span class="mr-3">
       You commented <%= time_ago_in_words(comment.created_at) %> ago.
     </span>
-    <span>
-      <%= link_to "Edit", edit_group_post_comment_path(group, post, comment), class: "text-blue-600" %>
-    </span>
-    <span class="mx-3">
-      <%= link_to "Delete", group_post_comment_path(group, post, comment), data: { turbo_method: :delete }, class: "text-red-600" %>
-    </span>
-    <span class="mx-3">
-      <%= link_to "Reply", new_group_post_comment_path(group, post, comment_id: comment.id), class: "text-blue-600" %>
-    </span>
   <%- else %>
     <span class="mx-3">
       <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago.
     </span>
-    <span class="mx-3">
-      <%= link_to "Reply", new_group_post_comment_path(group, post, comment_id: comment.id), class: "text-blue-600" %>
-    </span>
   <%-end%>
+  <span>
+    <%= link_to "Edit", edit_group_post_comment_path(group, post, comment), class: "text-blue-600" %>
+  </span>
+  <span class="mx-3">
+    <%= link_to "Delete", group_post_comment_path(group, post, comment), data: { turbo_method: :delete }, class: "text-red-600" %>
+  </span>
+  <span class="mx-3">
+    <%= link_to "Reply", new_group_post_comment_path(group, post, comment_id: comment.id), class: "text-blue-600" %>
+  </span>
   <% if comment.sub_comments.present? %>
     <% comment.sub_comments.each do |comment| %>
       <%- if comment.persisted? %>
