@@ -16,5 +16,20 @@ module.exports = {
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
-  ]
+  ],
+  resolve: {
+    modules: ['node_modules'],
+    enforceExtension: false // allows webpack to use imports with extension-less
+  },
+  // ...
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        resolve: {
+          fullySpecified: false // allows webpack to ignore some package rules as the Strict EcmaScript Module mode.
+        }
+      }
+    ],
+  },
 }
