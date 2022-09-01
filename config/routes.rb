@@ -3,14 +3,6 @@
 # == Route Map
 #
 #                                   Prefix Verb   URI Pattern                                                                                       Controller#Action
-#                                   groups GET    /groups(.:format)                                                                                 groups#index
-#                                          POST   /groups(.:format)                                                                                 groups#create
-#                                new_group GET    /groups/new(.:format)                                                                             groups#new
-#                               edit_group GET    /groups/:id/edit(.:format)                                                                        groups#edit
-#                                    group GET    /groups/:id(.:format)                                                                             groups#show
-#                                          PATCH  /groups/:id(.:format)                                                                             groups#update
-#                                          PUT    /groups/:id(.:format)                                                                             groups#update
-#                                          DELETE /groups/:id(.:format)                                                                             groups#destroy
 #                         new_user_session GET    /login(.:format)                                                                                  users/sessions#new
 #                             user_session POST   /login(.:format)                                                                                  users/sessions#create
 #                     destroy_user_session DELETE /logout(.:format)                                                                                 users/sessions#destroy
@@ -29,7 +21,15 @@
 #                          new_user_unlock GET    /unblock/new(.:format)                                                                            users/unlocks#new
 #                              user_unlock GET    /unblock(.:format)                                                                                users/unlocks#show
 #                                          POST   /unblock(.:format)                                                                                users/unlocks#create
-#                                     root GET    /                                                                                                 home#index
+#                                     root GET    /                                                                                                 groups#index
+#                                   groups GET    /groups(.:format)                                                                                 groups#index
+#                                          POST   /groups(.:format)                                                                                 groups#create
+#                                new_group GET    /groups/new(.:format)                                                                             groups#new
+#                               edit_group GET    /groups/:id/edit(.:format)                                                                        groups#edit
+#                                    group GET    /groups/:id(.:format)                                                                             groups#show
+#                                          PATCH  /groups/:id(.:format)                                                                             groups#update
+#                                          PUT    /groups/:id(.:format)                                                                             groups#update
+#                                          DELETE /groups/:id(.:format)                                                                             groups#destroy
 #         turbo_recede_historical_location GET    /recede_historical_location(.:format)                                                             turbo/native/navigation#recede
 #         turbo_resume_historical_location GET    /resume_historical_location(.:format)                                                             turbo/native/navigation#resume
 #        turbo_refresh_historical_location GET    /refresh_historical_location(.:format)                                                            turbo/native/navigation#refresh
@@ -79,6 +79,6 @@ Rails.application.routes.draw do
              }
 
   # Defines the root path route ("/")
-  root to: 'home#index'
+  root to: 'groups#index'
   resources :groups
 end

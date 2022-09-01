@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: groups
@@ -11,6 +13,6 @@
 #
 FactoryBot.define do
   factory :group do
-    title { "MyString" }
+    title { 'MyString' }
   end
 end

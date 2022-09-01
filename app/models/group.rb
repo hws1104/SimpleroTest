@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: groups
@@ -10,4 +12,5 @@
 #  updated_at  :datetime         not null
 #
 class Group < ApplicationRecord
+  validates :title, presence: true
 end
