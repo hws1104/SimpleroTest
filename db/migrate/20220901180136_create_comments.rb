@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+class CreateComments < ActiveRecord::Migration[7.0]
+  def change
+    create_table :comments, if_not_exists: true do |t|
+      ## fields
+      t.string :content
+      t.references :commentable, polymorphic: true, null: false
+      t.references :user, null: false, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end

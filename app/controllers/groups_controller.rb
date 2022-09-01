@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show edit update destroy join]
+  before_action :set_group, only: %i[show edit update destroy join leave]
   before_action :ensure_frame_response, only: %i[new edit]
 
   # GET /groups or /groups.json
@@ -71,7 +71,15 @@ class GroupsController < ApplicationController
   def join
     @group.users << current_user
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: "#{current_user.email} joins the #{@group.title}" }
+      format.html { redirect_to groups_url, notice: "#{current_user.name} joins to the #{@group.title}" }
+      format.json { head :no_content }
+    end
+  end
+
+  def leave
+    @group.users.delete(current_user)
+    respond_to do |format|
+      format.html { redirect_to groups_url, notice: "#{current_user.name} removed from the #{@group.title}" }
       format.json { head :no_content }
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_31_111345) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_31_180136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -62,6 +62,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_111345) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.string "commentable_type", null: false
+    t.bigint "commentable_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.uuid "uuid_token", default: -> { "gen_random_uuid()" }, null: false
     t.uuid "uuid_secure", default: -> { "gen_random_uuid()" }, null: false
@@ -70,6 +81,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_111345) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.uuid "uuid_token", default: -> { "gen_random_uuid()" }, null: false
+    t.uuid "uuid_secure", default: -> { "gen_random_uuid()" }, null: false
+    t.string "title"
+    t.bigint "group_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_posts_on_group_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -109,6 +132,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_111345) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "users"
+  add_foreign_key "posts", "groups"
+  add_foreign_key "posts", "users"
   add_foreign_key "users_groups", "groups"
   add_foreign_key "users_groups", "users"
 end

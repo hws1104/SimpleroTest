@@ -1,0 +1,40 @@
+<div class="mx-auto w-5/6">
+  <div class="grid grid-cols-3 gap-4">
+    <div class="col-span-2 ...">
+      <div class="flex justify-between items-center mt-5">
+        <h1 class="font-bold text-3xl">
+          <%= @group.title%>&nbsp;&nbsp;
+          <%= link_to edit_group_path(@group), data: { turbo_frame: 'modal' } do %>
+            <i class="fa-solid fa-gear h-8 w-8 inline"></i>
+          <%end%>
+        </h1>
+      </div>
+      <div class="min-w-full">
+        <%= render "form", post: @post %>
+      </div>
+
+      <div class="flex justify-between items-center mt-5">
+        <h1 class="font-bold text-3xl">All Posts</h1>
+      </div>
+      <div id="posts" class="min-w-full mt-5">
+        <% @posts.each do |post| %>
+          <%- if post.persisted? %>
+            <%= render post %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="... my-5 ml-2">
+      <div class="flex justify-between items-center mt-5">
+        <h1 class="font-bold text-3xl">
+          Members
+        </h1>
+      </div>
+      <div id="posts" class="min-w-full mt-5">
+        <% @group.users.each do |member| %>
+            <%= render 'member', member: member, group: @group %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

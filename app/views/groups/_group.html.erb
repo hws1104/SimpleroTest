@@ -2,11 +2,11 @@
   <div class="grid grid-cols-3 gap-4">
     <div class="col-span-2 ...">
       <p class="my-5">
-        <strong class="block font-medium mb-1"><%= group.title %></strong>
+        <strong class="block font-medium mb-1"><%= link_to group.title, group_posts_path(group), class: "text-blue-600" %></strong>
       </p>
       <span><%= group.users.count %> members</span>
-      <span class="mx-3">30 posts</span>
-      <span class="mx-3">Last Activity 3 days ago.</span>
+      <span class="mx-3"><%= group.posts.count %> posts</span>
+      <span class="mx-3">Last Activity <%= time_ago_in_words(get_activity_time(group)) %> ago.</span>
     </div>
     <div class="... my-5">
       <%= join_or_edit_group_link(group.users, current_user, action_name, group) %>
