@@ -7,6 +7,39 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
+"@fortawesome/fontawesome-common-types@6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.2.0.tgz#76467a94aa888aeb22aafa43eb6ff889df3a5a7f"
+  integrity sha512-rBevIsj2nclStJ7AxTdfsa3ovHb1H+qApwrxcTVo+NNdeJiB9V75hsKfrkG5AwNcRUNxrPPiScGYCNmLMoh8pg==
+
+"@fortawesome/fontawesome-svg-core@^6.1.1":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-6.2.0.tgz#11856eaf4dd1d865c442ddea1eed8ee855186ba2"
+  integrity sha512-Cf2mAAeMWFMzpLC7Y9H1I4o3wEU+XovVJhTiNG8ZNgSQj53yl7OCJaS80K4YjrABWZzbAHVaoHE1dVJ27AAYXw==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.2.0"
+
+"@fortawesome/free-brands-svg-icons@^6.1.1":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-6.2.0.tgz#ce072179677f9b5d6767f918cfbf296f357cc1d0"
+  integrity sha512-fm1y4NyZ2qKYNmYhdMz9VAWRw1Et7PMHNunSw3W0SVAwKwv6o0qiJworLH3Y9SnmhHzAymXJwCX1op22FFvGiA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.2.0"
+
+"@fortawesome/free-regular-svg-icons@^6.1.1":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-6.2.0.tgz#947e1f03be17da3a60bfeb2666b5348b19448ce2"
+  integrity sha512-M1dG+PAmkYMTL9BSUHFXY5oaHwBYfHCPhbJ8qj8JELsc9XCrUJ6eEHWip4q0tE+h9C0DVyFkwIM9t7QYyCpprQ==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.2.0"
+
+"@fortawesome/free-solid-svg-icons@^6.1.1":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.2.0.tgz#8dcde48109354fd7a5ece8ea48d678bb91d4b5f0"
+  integrity sha512-UjCILHIQ4I8cN46EiQn0CZL/h8AwCGgR//1c4R96Q5viSRwuKVo0NdQEc4bm+69ZwC0dUvjbDqAHF1RR5FA3XA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.2.0"
+
 "@hotwired/stimulus@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.1.0.tgz#20215251e5afe6e0a3787285181ba1bfc9097df0"
@@ -91,19 +124,19 @@
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.3.tgz#71f08e958883af64f6a20489318b5e95d2c6dc5b"
   integrity sha512-Iefl21FZD+ck1di6xSHMYzSzRiNJTHV4NrAzCfDfqc/wPz4xncrP8f2/fJ+2jzwKIaDn76UVMsALh7R5OzsF8Q==
 
-"@rails/actiontext@^7.0.3-1":
-  version "7.0.3-1"
-  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-7.0.3-1.tgz#cd6ada90068376e3e9081067a12b4dfe8e72d433"
-  integrity sha512-4gyYWbc6gdRlTITOU1cy83d9dq5J9IPm+p2418Iy6ekG1XoZwW2zsuSJisKCc6AF8tGrYM4LtLtXif04zz8bXg==
+"@rails/actiontext@^6.0.5":
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-6.1.6.tgz#1e643621b16629d51923cbd5d8cb49358de9aed2"
+  integrity sha512-IK47RN1Cr6Ga5Xmhdq8Skhd2YrmQJzKmT0Q3GGbZAfM8b4FLZuXDOtA4WA/z6no8ghZd0LtmlC4Y10e5fCvFZQ==
   dependencies:
-    "@rails/activestorage" ">= 7.0.0-alpha1"
+    "@rails/activestorage" "^6.0.0"
 
-"@rails/activestorage@>= 7.0.0-alpha1":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.3.tgz#516770d49f702bb2b746a826779465a513804003"
-  integrity sha512-pdIoQUNcimjbSlhUgnRyFimVvsp/J9C1yTxV3P40oQrRU81f3uM9tT4IY/wMfe691Zj7tJBiqsbThUoPT88TAA==
+"@rails/activestorage@^6.0.0":
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-6.1.6.tgz#d4ffd5327af8e85dee9f9a4867a7cd64d644e26f"
+  integrity sha512-0ajoVtZK5fNbHqAzKWZR+ocDwnd+D36gG9om3CphSL2QevB7e1YIVZo5UFPbB+3KD0kj8KuW6VaaOOT98Qm5bA==
   dependencies:
-    spark-md5 "^3.0.1"
+    spark-md5 "^3.0.0"
 
 "@types/eslint-scope@^3.7.3":
   version "3.7.4"
@@ -1049,7 +1082,7 @@ source-map@^0.6.0:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-spark-md5@^3.0.1:
+spark-md5@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
   integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
