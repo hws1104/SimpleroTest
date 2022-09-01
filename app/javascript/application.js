@@ -22,3 +22,19 @@ import "@rails/actiontext"
 
 // sub directory
 import './src/plugins';
+
+
+function toggleNavbar(collapseID){
+    document.getElementById(collapseID).classList.toggle("hidden");
+    document.getElementById(collapseID).classList.toggle("flex");
+}
+
+// Document turbo:load event
+document.addEventListener("turbo:load", function() {
+    // Toggle navbar on click
+    document.getElementById("navbar-toggle").addEventListener("click", function() {
+        // get collapse ID from data-toggle-id attribute from the clicked element
+        var collapseID = this.dataset.toggleId;
+        toggleNavbar(collapseID);
+    } );
+});

@@ -4,7 +4,7 @@
       <a class="text-sm inline-block mr-4 py-2 whitespace-nowrap uppercase" href="#">
         Groups
       </a>
-      <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
+      <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" data-toggle-id="example-collapse-navbar" id="navbar-toggle">
         <i class="fas fa-bars"></i>
       </button>
     </div>
@@ -13,32 +13,25 @@
         <li class="nav-item">
           <%- if user_signed_in? %>
             <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'text-red bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' do %>
-              <i class="fas fa-sign-out-alt"></i>
-              Log Out
+             <i class="fa-solid fa-right-from-bracket h-6 w-6 inline"></i> Logout
             <% end %>
           <%else%>
             <%= link_to new_user_session_path, class: 'text-red bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' do %>
               LogIn
             <% end %>
           <% end %>
-          <!-- <a class="px-3 py-2 flex items-center text-xs uppercase leading-snug hover:opacity-75" href="#pablo">
+           <a class="px-3 py-2 flex items-center text-xs uppercase leading-snug hover:opacity-75" href="#pablo">
             <i class="fab fa-facebook-square text-lg leading-lg opacity-75"></i><span class="ml-2">Share</span>
-          </a> -->
+          </a>
         </li>
-        <!-- <li class="nav-item">
+         <li class="nav-item">
           <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get started</button>
 
           <a class="px-3 py-2 flex items-center text-xs uppercase leading-snug hover:opacity-75" href="#pablo">
-            <i class="fab fa-twitter text-lg leading-lg opacity-75"></i><span class="ml-2">Tweet</span>
+            <i class="fa-brands fa-twitter text-lg leading-lg opacity-75"></i><span class="ml-2">Tweet</span>
           </a>
-        </li> -->
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-<script>
-  function toggleNavbar(collapseID){
-    document.getElementById(collapseID).classList.toggle("hidden");
-    document.getElementById(collapseID).classList.toggle("flex");
-  }
-</script>
