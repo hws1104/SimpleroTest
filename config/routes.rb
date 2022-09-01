@@ -1,6 +1,25 @@
 # == Route Map
 #
 #                                   Prefix Verb   URI Pattern                                                                                       Controller#Action
+#                         new_user_session GET    /login(.:format)                                                                                  users/sessions#new
+#                             user_session POST   /login(.:format)                                                                                  users/sessions#create
+#                     destroy_user_session DELETE /logout(.:format)                                                                                 users/sessions#destroy
+#                        new_user_password GET    /secret/new(.:format)                                                                             users/passwords#new
+#                       edit_user_password GET    /secret/edit(.:format)                                                                            users/passwords#edit
+#                            user_password PATCH  /secret(.:format)                                                                                 users/passwords#update
+#                                          PUT    /secret(.:format)                                                                                 users/passwords#update
+#                                          POST   /secret(.:format)                                                                                 users/passwords#create
+#                 cancel_user_registration GET    /cancel(.:format)                                                                                 users/registrations#cancel
+#                    new_user_registration GET    /sign_up(.:format)                                                                                users/registrations#new
+#                   edit_user_registration GET    /edit(.:format)                                                                                   users/registrations#edit
+#                        user_registration PATCH  /                                                                                                 users/registrations#update
+#                                          PUT    /                                                                                                 users/registrations#update
+#                                          DELETE /                                                                                                 users/registrations#destroy
+#                                          POST   /                                                                                                 users/registrations#create
+#                          new_user_unlock GET    /unblock/new(.:format)                                                                            users/unlocks#new
+#                              user_unlock GET    /unblock(.:format)                                                                                users/unlocks#show
+#                                          POST   /unblock(.:format)                                                                                users/unlocks#create
+#                                     root GET    /                                                                                                 home#index
 #         turbo_recede_historical_location GET    /recede_historical_location(.:format)                                                             turbo/native/navigation#recede
 #         turbo_resume_historical_location GET    /resume_historical_location(.:format)                                                             turbo/native/navigation#resume
 #        turbo_refresh_historical_location GET    /refresh_historical_location(.:format)                                                            turbo/native/navigation#refresh
@@ -34,7 +53,21 @@
 
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users,
+             path: '',
+             path_names: {
+               sign_in: 'login',
+               sign_out: 'logout',
+               password: 'secret',
+               unlock: 'unblock'
+             },
+             controllers: {
+               registrations: 'users/registrations',
+               sessions: 'users/sessions',
+               passwords: 'users/passwords',
+               unlocks: 'users/unlocks'
+             }
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root to: 'home#index'
 end
