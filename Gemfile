@@ -84,6 +84,10 @@ group :production, :staging, :development, :test do
   # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
   gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+  # A framework for creating reusable, testable & encapsulated view components, built to integrate seamlessly with Ruby on Rails.
+  # Read more: https://viewcomponent.org/
+  gem 'view_component', '~> 2.70'
+
   # Ruby C bindings to the excellent Yajl JSON stream-based parser library.
   # Read more: http://github.com/brianmario/yajl-ruby
   gem 'yajl-ruby', '~> 1.4'
