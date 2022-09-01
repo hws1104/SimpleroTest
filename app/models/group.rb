@@ -22,4 +22,6 @@ class Group < ApplicationRecord
   has_many :posts, dependent: :destroy
   belongs_to :user, class_name: 'User'
   validates :title, presence: true
+
+  default_scope { order(created_at: :desc) }
 end

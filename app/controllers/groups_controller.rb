@@ -77,9 +77,11 @@ class GroupsController < ApplicationController
   end
 
   def leave
-    @group.users.delete(current_user)
+    member = User.find(params[:member_id])
+    redirect_to group_posts_url(@group), notice: "You can't remove owner of the group" and return if member == @group.user
+    @group.users.delete(member)
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: "#{current_user.name} removed from the #{@group.title}" }
+      format.html { redirect_to group_posts_url(@group), notice: "#{current_user.name} removed from the #{@group.title}" }
       format.json { head :no_content }
     end
   end

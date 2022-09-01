@@ -5,7 +5,11 @@
   </p>
 
   <span class="mx-3">
-    Last Comment <%= time_ago_in_words(post.comments.last.updated_at) if post.comments.present? %> ago.
+    <%- if post.comments.present? %>
+      Last Comment <%= time_ago_in_words(post.comments.last.updated_at) %> ago.
+    <%- else %>
+      No comment yet.
+    <%-end%>
   </span>
   <span>
     <%= link_to "Edit", edit_group_post_path(post.group, post), class: "text-blue-600" %>
