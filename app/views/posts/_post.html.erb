@@ -11,12 +11,14 @@
       No comment yet.
     <%-end%>
   </span>
-  <span>
-    <%= link_to "Edit", edit_group_post_path(post.group, post), class: "text-blue-600" %>
-  </span>
-  <span class="mx-3">
-    <%= link_to "Delete", group_post_path(post.group, post), data: { turbo_method: :delete }, class: "text-red-600" %>
-  </span>
+  <%- if post.user == current_user || post.group.user == current_user %>
+    <span>
+      <%= link_to "Edit", edit_group_post_path(post.group, post), class: "text-blue-600" %>
+    </span>
+    <span class="mx-3">
+      <%= link_to "Delete", group_post_path(post.group, post), data: { turbo_method: :delete }, class: "text-red-600" %>
+    </span>
+  <%-end%>
   <span class="mx-3">
     Created by <%= member_name(post, current_user) %>
   </span>
