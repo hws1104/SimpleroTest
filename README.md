@@ -1,4 +1,4 @@
-# Simplero_Blog_Test
+# Simplero Blog Test
 
 # Technologies:
 
