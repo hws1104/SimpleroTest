@@ -1,24 +1,21 @@
-# README
+# Simplero_Blog_Test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Technologies:
 
-Things you may want to cover:
+- Rails 7
+- Stimulus
+- TailwindCSS
+- ViewComponent
+- FontAwesome
 
-* Ruby version
+# Development
 
-* System dependencies
+command - bin/dev
 
-* Configuration
+# Ruby version
 
-* Database creation
+- 3.0.0
 
-* Database initialization
+# Rails version
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- 7.0.3.1
