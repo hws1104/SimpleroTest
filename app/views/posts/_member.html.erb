@@ -3,9 +3,11 @@
   
   <span class="mx-3">
     <%- unless member == @group.user %>
-      <%= link_to leave_group_path(@group, member_id: member.id), data: { turbo_method: :delete }, class: "text-red-600" do %>
-        <i class="fa-solid fa-xmark w-6 h-6 inline"></i>
-      <%end%>
+      <%- if group.user == current_user %>
+        <%= link_to leave_group_path(@group, member_id: member.id), data: { turbo_method: :delete }, class: "text-red-600" do %>
+          <i class="fa-solid fa-xmark w-6 h-6 inline"></i>
+        <%end%>
+      <%-end%>
     <%-end%>
   </span>
   
