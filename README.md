@@ -8,14 +8,10 @@
 - ViewComponent
 - FontAwesome
 
-# Development
-
-command - bin/dev
-
 # Ruby version
 
-- 3.0.0
+- 3.1.2
 
 # Rails version
 
-- 7.0.3.1
+- 7.0.3
