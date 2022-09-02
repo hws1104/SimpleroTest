@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>" class="mt-4">
   <h1 class="font-bold text-2xl"><%= post.title %></h1>
-  <p>
+  <p class="text-gray-400">
     <%= truncate(post.content.to_plain_text, length: 200) %>
   </p>
 

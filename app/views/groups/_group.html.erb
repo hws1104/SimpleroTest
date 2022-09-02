@@ -2,7 +2,7 @@
   <div class="grid grid-cols-3 gap-4">
     <div class="col-span-2 ...">
       <p class="my-5">
-        <strong class="block font-medium mb-1"><%= link_to group.title, group_posts_path(group), class: "text-blue-600" %></strong>
+        <strong class="block font-medium mb-1"><%= link_to group.title, group_posts_path(group), class: "text-blue-600" %></strong> <span class="text-gray-400"> created by <%= group.user.name%></span>
       </p>
       <span><%= group.users.count %> members</span>
       <span class="mx-3"><%= group.posts.count %> posts</span>
