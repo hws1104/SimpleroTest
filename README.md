@@ -1,6 +1,6 @@
 # Simplero Blog Test
 
-# Technologies:
+## Technologies:
 
 - Rails 7
 - Stimulus
@@ -8,10 +8,10 @@
 - ViewComponent
 - FontAwesome
 
-# Ruby version
+## Ruby version
 
 - 3.1.2
 
-# Rails version
+## Rails version
 
 - 7.0.3
